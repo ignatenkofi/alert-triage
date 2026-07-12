@@ -1,0 +1,9 @@
+.DS_Store
+.idea/
+.vscode/
+*.swp
+node_modules/
+.wrangler/
+.dev.vars
+* 2.*
+* 2/
