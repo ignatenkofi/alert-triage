@@ -65,7 +65,8 @@ AI-диагностика.
 
 ## 5. Ограничение среды
 
-Homelab (Prometheus/Alertmanager/Grafana в `192.168.30.0/24`) за Tailscale:
+Homelab (Prometheus/Alertmanager/Grafana в приватной RFC1918-подсети,
+условно `192.168.X.0/24`) за Tailscale:
 
 - диагностический MCP достижим из **локальных** Cowork-сессий (Tailscale на
   хосте) сразу;
