@@ -1,9 +1,14 @@
 # alert-triage
 
 AI-триаж алертов поверх зрелого alerting-стека: Alertmanager шлёт webhook →
-тонкий адаптер кладёт алерт в Slack-карантин → Claude Routine разбирает
+тонкий адаптер кладёт нотификацию в Slack-карантин → Claude Routine разбирает
 (диагностика через Prometheus/Grafana MCP, «инцидент или флап») → аутком:
 GitHub issue в репо нужного проекта или честное 🚫 «флап».
+
+Единица здесь — **группа**, а не одиночный алерт: `webhook_config` шлёт
+`groupKey` + `alerts[]`, у каждого элемента свой fingerprint и свой статус.
+Формат, гранулярность и схема `alert_v1` разобраны в
+[DESIGN.md §5a](DESIGN.md).
 
 ```
 Alertmanager (webhook_config) → адаптер → Slack #alerts (metadata alert_v1)
